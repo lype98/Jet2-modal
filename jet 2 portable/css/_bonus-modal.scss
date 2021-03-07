@@ -1,0 +1,71 @@
+@import "./variables";
+
+.modal-bonus {
+    @include flexCenter();
+    flex-direction: column;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s;
+}
+
+.modal-bonus__body {
+    display: flex;    
+    background-color: #f2f2f2;
+    width: 25%;
+    height: auto;
+    min-height: 17px;
+
+    .modal-bonus__body__text {
+        font-size: calc(15px + 0.2vw);
+        font-weight: bold;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        color: rgb(83, 83, 83);
+    }
+}
+
+.modal-bonus__footer {    
+    background-color: #f2f2f2;
+    width: 25%;    
+    padding-bottom: 0.5%;
+    padding-top: 0.5%;
+    border-top: 2px solid #d5d5d5,;
+
+    .modal-bonus__footer__ok {
+        @include continueButton();
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+@media (orientation: portrait) and (max-width: 550px) { // phone
+    .modal-bonus__body {
+        width: 70%;
+        margin-top: 60%;
+    }
+
+    .modal-bonus__footer {
+        flex-direction: column;
+        width: 70%;
+
+        .modal-bonus__footer__ok {            
+            margin-left: auto;
+            width: $button-sm;
+        }
+    }
+}
+
+@media (orientation: landscape) and (max-height: 350px) { // phone landscape
+    .modal-bonus{
+        position: absolute;        
+        height: 200vh;
+    }
+}
